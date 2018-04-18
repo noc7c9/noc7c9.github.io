@@ -1,0 +1,20 @@
+rules:
+  force-element-nesting: 0
+  force-pseudo-nesting: 0
+  hex-length:
+    - 1
+    -
+      style: long
+  indentation:
+    - 1
+    -
+      size: 4
+  leading-zero:
+    - 1
+    -
+      include: true
+  no-ids: 0
+  property-sort-order:
+    - 1
+    -
+      order: 'recess'
