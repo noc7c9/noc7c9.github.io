@@ -115,6 +115,12 @@ $family-sans-serif: 'Raleway', sans-serif;
     }
 }
 
+.modal-content .box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .hero.is-fullheight.e404-hero {
     min-height: calc(100vh - #{$navbar-height});
 }

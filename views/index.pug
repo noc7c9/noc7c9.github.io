@@ -29,6 +29,13 @@ mixin project(options)
             block
 
 block content
+    #image-view.modal
+        .modal-background
+        .modal-content
+            .box
+                img
+        button.modal-close
+
     section.section
         .container
             +project({
@@ -144,3 +151,35 @@ block content
                 p.
                     A fun side project to learn the Rust language and to
                     experiment with parsing an indentation based language.
+
+block script
+    script.
+        const imgLinks = document.querySelectorAll('.img-container a');
+        const modal = document.querySelector('#image-view');
+        const modalCloseButton = document.querySelector('#image-view .modal-close');
+        const modalBackground = document.querySelector('#image-view .modal-background');
+        const modalImg = document.querySelector('#image-view img');
+
+        function openModal() {
+            modal.classList.add('is-active');
+        }
+
+        function closeModal() {
+            modal.classList.remove('is-active');
+        }
+
+        for (let lnk of imgLinks) {
+            lnk.addEventListener('click', function (e) {
+                modalImg.src = e.target.parentNode.href;
+                openModal();
+                e.preventDefault();
+            });
+        }
+
+        modalCloseButton.addEventListener('click', function () {
+            closeModal();
+        });
+
+        modalBackground.addEventListener('click', function () {
+            closeModal();
+        });
