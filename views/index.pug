@@ -1,4 +1,146 @@
 extends _layout.pug
 
+mixin project(options)
+    - let title = options.title
+    - let image = options.image
+    - let largeImage = (options.image || '').replace('.thumb', '')
+    - let github = options.github
+    - let link = options.link
+    - let tags = options.tags || []
+    .project.columns
+        if image
+            .column.is-one-quarter.img-container
+                a(href=largeImage, target='_blank')
+                    img(src=image)
+        .column
+            h1.title
+                span.title-text= title
+                if github
+                    a(href=github)
+                        span.icon
+                            i.fab.fa-github-alt
+                if link
+                    a(href=link)
+                        span.icon.is-large
+                            i.fas.fa-link
+            .tags
+                each tag in tags
+                    span.tag.is-primary= tag
+            block
+
 block content
-    div Hello, world!
+    section.section
+        .container
+            +project({
+                title: 'IT Project',
+                github: 'https://github.com/matomatical/8bIT-Project',
+                image: 'images/it-project.thumb.png',
+                tags: ['Unity', 'C#'],
+            })
+                p.
+                    My Bachelor of Science Capstone project. A multiplayer
+                    cooperative platforming game developed on the Unity game
+                    engine for Android.
+                p.
+                    Developed as a part of a team of 5, I was responsible for
+                    the implementation of parts of the game logic as well as the
+                    entire user interface.
+                p For more details, please take a look at the <a href='https://github.com/matomatical/8bIT-Project'>github repository.</a>
+
+            +project({
+                title: 'Snippet Store',
+                link: 'https://snippet-store.herokuapp.com',
+                github: 'https://github.com/noc7c9/snippet-store',
+                image: 'images/snippet-store.thumb.png',
+                tags: ['JavaScript', 'Node.js', 'MongoDB'],
+            })
+                p.
+                    A webapp to store small snippets of text that can be
+                    searched and quickly copied to the clipboard.
+                p.
+                    Created to help out my fellow tutors of COMP10001
+                    when giving online help to students.
+                    Though the app might have other uses.
+
+            +project({
+                title: 'Banking on Women Website',
+                link: 'http://bankingonwomen.org.au',
+                image: 'images/banking-on-women.thumb.jpg',
+                tags: ['JavaScript', 'Node.js', 'Keystone'],
+            })
+                p.
+                    Website for a University of Melbourne club. Integrated with
+                    a CMS and implemented according to design prototypes by some
+                    peers.
+
+            +project({
+                title: 'Accounting Students Association Website',
+                link: 'http://asamelb.com.au',
+                image: 'images/asamelb.thumb.jpg',
+                tags: ['JavaScript', 'Node.js', 'Keystone'],
+            })
+                p.
+                    Similar to the Banking on Women, website for a University of
+                    Melbourne club.
+
+            +project({
+                title: 'Chxess',
+                github: 'https://github.com/noc7c9/chxess',
+                image: 'images/chxess.thumb.png',
+                tags: ['Haxe'],
+            })
+                p.
+                    Implementation of chess in the Haxe language. Specificially
+                    targeting javascript, both browsers and Node.js.
+                p.
+                    A side project.
+
+            +project({
+                title: 'Dye, Don\'t Die',
+                github: 'https://github.com/noc7c9/dye-dont-die',
+                link: 'https://noc7c9.itch.io/dye-dont-die',
+                itchio: 'https://noc7c9.itch.io/dye-dont-die',
+                image: 'images/dye-dont-die.thumb.png',
+                tags: ['C#', 'Unity'],
+            })
+                p.
+                    A game best described as Downwell meets Hue. It is a
+                    platformer that lets the player use color to manipulate how
+                    they interact with enemies.
+                p.
+                    Created in roughly 10 hours for the <a
+                    href="https://itch.io/jam/16-colour-jam">16 Colour Jam</a>
+                    using the Unity game engine.
+
+            +project({
+                title: 'Code Red II',
+                github: 'https://github.com/noc7c9/code-red-II',
+                itchio: 'https://noc7c9.itch.io/code-red-2',
+                image: 'images/code-red-ii.thumb.jpg',
+                tags: ['C#', 'Unity'],
+            })
+                p.
+                    A top down shooter game implemented using the Unity game
+                    engine in C# and a handful of 3rd party assets.
+                p.
+                    My submission of the <a
+                    href='https://itch.io/jam/a-game-by-its-cover-2017'>A Game
+                    by Its Cover 2017</a>.
+                p.
+                    For more information see the <a
+                    href="https://itch.io/jam/a-game-by-its-cover-2017">Itch.io
+                    page</a> for the game.
+
+            +project({
+                title: 'Pyfection',
+                github: 'https://github.com/noc7c9/pyfection',
+                image: 'images/pyfection.thumb.png',
+                tags: ['Rust'],
+            })
+                p.
+                    A tool that allows writing C and C syntax based languages
+                    without braces, instead using indentation to indicated code
+                    blocks, similar to Python.
+                p.
+                    A fun side project to learn the Rust language and to
+                    experiment with parsing an indentation based language.

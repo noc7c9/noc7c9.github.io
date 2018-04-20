@@ -1,6 +1,7 @@
 'use strict';
 
 var gulp = require('gulp');
+var notify = require('gulp-notify');
 var rename = require('gulp-rename');
 
 var browserSync = require('browser-sync');
@@ -17,6 +18,9 @@ var cssnano = require('cssnano');
 gulp.task('pug', function () {
     return gulp.src(['./views/*.pug', '!./views/_*.pug'])
         .pipe(pug())
+        .on('error', notify.onError(function (error) {
+            return 'An error occurred while compiling jade.\n' + error;
+        }))
         .pipe(gulp.dest('.'))
 });
 

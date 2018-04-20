@@ -4,8 +4,8 @@ block variables
     - title = 'Not Found'
 
 block content
-    p
-        | Sorry, we couldn't find a page with that URL.
-
-    p
-        a(href='/') Click here to head back to the home page.
+    section.hero.is-fullheight.e404-hero
+        .hero-body
+            .container.has-text-centered
+                h1.title You seem to be a bit lost
+                h2.subtitle Click <a href="/">here</a> to head to the frontpage.

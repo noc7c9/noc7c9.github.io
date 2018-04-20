@@ -11,12 +11,15 @@ html
         else
             title Athir Saleem
 
-        style.
-            html { /* anti-FOUC */
-                display: none;
-            }
+        link(href="https://use.fontawesome.com/releases/v5.0.10/css/all.css", crossorigin="anonymous", rel="stylesheet")
+        link(href='https://fonts.googleapis.com/css?family=Raleway:400,700', rel='stylesheet')
+
+        style
+            include ../styles/anti-fouc-head.css
 
     body
+        include ./_header.pug
+
         block content
 
         link(rel='stylesheet', href='/bundle.css')
