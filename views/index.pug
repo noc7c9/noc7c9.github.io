@@ -1,5 +1,8 @@
 extends _layout.pug
 
+block variables
+    - let title = 'Portfolio'
+
 mixin project(options)
     - let title = options.title
     - let image = options.image
@@ -38,6 +41,8 @@ block content
 
     section.section
         .container
+            h1.title Portfolio
+
             +project({
                 title: 'IT Project',
                 github: 'https://github.com/matomatical/8bIT-Project',
