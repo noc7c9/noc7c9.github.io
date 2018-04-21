@@ -40,6 +40,9 @@ gulp.task('sass', function () {
 });
 
 
+gulp.task('build', ['sass', 'pug']);
+
+
 gulp.task('default', ['sass', 'pug'], function () {
     browserSync({
         server: {

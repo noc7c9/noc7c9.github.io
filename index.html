@@ -48,6 +48,7 @@ function closeModal() {
 
 for (let lnk of imgLinks) {
     lnk.addEventListener('click', function (e) {
+        modalImg.src = e.target.src;
         modalImg.src = e.target.parentNode.href;
         openModal();
         e.preventDefault();
